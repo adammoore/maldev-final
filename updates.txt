@@ -28,3 +28,26 @@ Next steps:
 - Set up basic testing framework with pytest
 - Added code linting with flake8
 - Updated GitHub Actions workflow to include testing and linting
+
+2024-07-16: RDA styling integration and improvements
+- Created rda_styles.css to match RDA website styling
+- Updated index.html with RDA-like header and footer
+- Modified lifecycle_visualization.js to use RDA color scheme
+- Updated app.py to serve static files
+- Created directory structure for static files
+- Added docstrings and improved PEP8 compliance
+- TODO: Implement substage visualization and tool details
+- TODO: Implement reset, show substages, and show all functionalities
+
+2024-07-17: Update README.md
+- Added comprehensive project overview
+- Included installation and setup instructions
+- Provided development guidelines
+- Added contributing and license information
+
+Next steps:
+1. Implement database initialization and data seeding
+2. Enhance the D3.js visualization to show substages
+3. Add interactivity to display tool information
+4. Implement user authentication and authorization
+5. Create forms for adding/editing lifecycle stages, substages, and tools
