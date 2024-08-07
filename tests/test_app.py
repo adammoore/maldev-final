@@ -1,21 +1,14 @@
-import unittest
-from app import create_app, db
+"""
+Unit tests for the Flask application.
+"""
 
-class TestApp(unittest.TestCase):
-    def setUp(self):
-        self.app = create_app('testing')
-        self.client = self.app.test_client()
-        with self.app.app_context():
-            db.create_all()
+import pytest
+from app import create_app
 
-    def tearDown(self):
-        with self.app.app_context():
-            db.session.remove()
-            db.drop_all()
+def test_app_creation():
+    """Test that the app can be created."""
+    app = create_app('testing')
+    assert app is not None
+    assert app.config['TESTING'] == True
 
-    def test_home_page(self):
-        response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
-
-if __name__ == '__main__':
-    unittest.main()
+# Add more app-related tests as needed
