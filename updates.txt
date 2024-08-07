@@ -85,3 +85,14 @@ Next steps:
 - Updated API endpoints in routes.py to use correct model relationships
 - TODO: Run tests and verify they're working correctly
 - TODO: Update frontend to use new API structure if necessary
+
+2024-08-07: Troubleshoot app running issues
+- Verified and updated run.py
+- Checked and updated project structure
+- Updated app/__init__.py to ensure correct setup
+- Verified config.py setup
+- Updated requirements.txt and reinstalled dependencies
+- Provided instructions for setting FLASK_APP environment variable
+- TODO: Verify app runs correctly after these changes
+- TODO: If issues persist, investigate ImportError in detail
+
