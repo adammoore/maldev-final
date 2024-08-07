@@ -1,6 +1,7 @@
 """
-Define the database models for the application.
+Database models for the Research Data Lifecycle Visualization project.
 """
+
 from app import db
 
 class LifecycleStage(db.Model):
@@ -8,47 +9,31 @@ class LifecycleStage(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text)
-    substages = db.relationship('Substage', backref='stage', lazy='dynamic')
-    tools = db.relationship('Tool', backref='stage', lazy='dynamic')
+    order = db.Column(db.Integer)
+    tool_categories = db.relationship('ToolCategory', backref='stage', lazy='dynamic')
 
-    def to_dict(self):
-        """Convert the model instance to a dictionary."""
-        return {
-            'id': self.id,
-            'name': self.name,
-            'description': self.description
-        }
-
-class Substage(db.Model):
-    """Model representing a substage within a lifecycle stage."""
+class ToolCategory(db.Model):
+    """Model representing a tool category within a lifecycle stage."""
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text)
     stage_id = db.Column(db.Integer, db.ForeignKey('lifecycle_stage.id'), nullable=False)
-
-    def to_dict(self):
-        """Convert the model instance to a dictionary."""
-        return {
-            'id': self.id,
-            'name': self.name,
-            'description': self.description,
-            'stage_id': self.stage_id
-        }
+    tools = db.relationship('Tool', backref='category', lazy='dynamic')
 
 class Tool(db.Model):
-    """Model representing a research tool."""
+    """Model representing a specific tool within a tool category."""
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text)
     url = db.Column(db.String(200))
-    stage_id = db.Column(db.Integer, db.ForeignKey('lifecycle_stage.id'), nullable=False)
+    category_id = db.Column(db.Integer, db.ForeignKey('tool_category.id'), nullable=False)
 
-    def to_dict(self):
-        """Convert the model instance to a dictionary."""
-        return {
-            'id': self.id,
-            'name': self.name,
-            'description': self.description,
-            'url': self.url,
-            'stage_id': self.stage_id
-        }
+class LifecycleConnection(db.Model):
+    """Model representing connections between lifecycle stages."""
+    id = db.Column(db.Integer, primary_key=True)
+    from_stage_id = db.Column(db.Integer, db.ForeignKey('lifecycle_stage.id'), nullable=False)
+    to_stage_id = db.Column(db.Integer, db.ForeignKey('lifecycle_stage.id'), nullable=False)
+    connection_type = db.Column(db.String(50))  # e.g., 'normal', 'alternative'
+
+    from_stage = db.relationship('LifecycleStage', foreign_keys=[from_stage_id])
+    to_stage = db.relationship('LifecycleStage', foreign_keys=[to_stage_id])

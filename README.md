@@ -11,7 +11,7 @@ This project provides an interactive visualization of the Research Data Lifecycl
 
 ## Project Structure
 
-```
+```text
 project_root/
 ├── app/
 │   ├── __init__.py
@@ -36,33 +36,33 @@ project_root/
 
 1. Clone the repository:
 
-   ```
+   ```bash
    git clone https://github.com/yourusername/research-data-lifecycle.git
    cd research-data-lifecycle
    ```
 
 2. Set up a virtual environment:
 
-   ```
+   ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
    ```
 
 3. Install dependencies:
 
-   ```
+   ```bash
    pip install -r requirements.txt
    ```
 
 4. Set up the database:
 
-   ```
+   ```bash
    flask db upgrade
    ```
 
 5. Run the development server:
 
-   ```
+   ```bash
    flask run
    ```
 

@@ -51,3 +51,23 @@ Next steps:
 3. Add interactivity to display tool information
 4. Implement user authentication and authorization
 5. Create forms for adding/editing lifecycle stages, substages, and tools
+
+2024-07-18: Implement database population from Excel file
+- Updated database models to reflect MaLDReTH Research Data Lifecycle structure
+- Created import_excel_data.py script to populate database from Excel file
+- TODO: Test and refine Excel import process
+- TODO: Update visualization to use new database structure
+
+2024-07-18: Implement database population from Excel file
+- Updated database models to reflect MaLDReTH Research Data Lifecycle structure
+- Created import_excel_data.py script to populate database from Excel file
+- TODO: Test and refine Excel import process
+- TODO: Update visualization to use new database structure
+
+2024-07-18: Implement database population from Excel file and set up unit testing
+- Updated database models to reflect MaLDReTH Research Data Lifecycle structure
+- Created import_excel_data.py script to populate database from Excel file
+- Set up pytest and created basic unit tests for database models
+- TODO: Test and refine Excel import process
+- TODO: Update visualization to use new database structure
+- TODO: Expand unit tests to cover more functionality
