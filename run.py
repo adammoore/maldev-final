@@ -1,9 +1,20 @@
 """
 Entry point for running the Flask application.
 """
+import sys
+print("Python version:", sys.version)
+print("Python path:", sys.path)
 
-from app import create_app, db
-from app.models import LifecycleStage, Substage, Tool
+try:
+    from app import create_app
+    print("Successfully imported create_app")
+except ImportError as e:
+    print("Failed to import create_app")
+    print("Error:", str(e))
+    print("Traceback:")
+    import traceback
+    traceback.print_exc()
+    sys.exit(1)
 
 app = create_app()
 
