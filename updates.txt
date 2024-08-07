@@ -11,3 +11,10 @@ Next steps:
 3. Add interactivity to display tool information
 4. Implement user authentication and authorization
 5. Create forms for adding/editing lifecycle stages, substages, and tools
+
+2024-07-15: Set up deployment pipeline
+- Configured virtual environment and Gunicorn
+- Created GitHub Actions workflow for CI/CD to Amazon EC2
+- Added Nginx configuration for reverse proxy
+- Created systemd service for Gunicorn
+- Updated .gitignore to exclude unnecessary files
