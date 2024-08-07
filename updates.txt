@@ -18,3 +18,13 @@ Next steps:
 - Added Nginx configuration for reverse proxy
 - Created systemd service for Gunicorn
 - Updated .gitignore to exclude unnecessary files
+
+2024-07-15: Project setup enhancements
+- Added README.md with project overview and setup instructions
+- Created .gitignore file to exclude unnecessary files from version control
+- Added Apache 2.0 LICENSE file
+- Set up database migrations with Flask-Migrate
+- Added environment variable management with python-dotenv
+- Set up basic testing framework with pytest
+- Added code linting with flake8
+- Updated GitHub Actions workflow to include testing and linting
